@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- B2. 고래 코스 (직선): GPS 기록처럼 꺾이는 직선 구간으로 물을 뿜는 고래를 그린다. 주황 = 시작점 -->
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#35C5F0"/><stop offset="1" stop-color="#1A85A8"/></linearGradient></defs>
+  <rect width="1024" height="1024" fill="url(#g)"/>
+  <g stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="14"><path d="M0 300 L1024 220 M0 560 L1024 500 M0 820 L1024 760 M260 0 L340 1024 M560 0 L620 1024 M820 0 L860 1024"/></g>
+  <g transform="translate(512 512) scale(0.92) translate(-512 -490)">
+  <g fill="none" stroke="#FFFFFF" stroke-width="54" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 580 L246 500 L300 430 L400 404 L500 414 L590 452 L660 470 L712 440 L724 380 L650 322 L726 352 L806 320 L748 392 L748 470 L700 566 L600 630 L460 652 L320 642 L250 614 Z"/>
+    <path d="M372 362 L372 318 M372 318 L332 290 M372 318 L412 290"/>
+  </g>
+  <circle cx="332" cy="520" r="24" fill="#FFFFFF"/>
+  <circle cx="240" cy="580" r="52" fill="#FF6F0F" stroke="#FFFFFF" stroke-width="16"/>
+  </g>
+</svg>

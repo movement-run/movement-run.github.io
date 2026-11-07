@@ -1,0 +1,10 @@
+title: Movement
+description: 함께 달리는 러닝 기록 · 크루 · 코스 앱
+lang: ko
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }

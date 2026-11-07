@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} · {% endif %}Movement</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="icon" href="{{ '/assets/icon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --sky:#35C5F0;--sky-50:#E0F6FE;--sky-700:#1A85A8;--sky-800:#11617A;--orange:#FF6F0F;
+  --text:#191919;--text-2:#555;--text-3:#8A8A8A;--bg:#FFF;--bg-subtle:#FAFAFA;--line:#F0F0F0;--line-strong:#E0E0E0;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.04);--shadow-md:0 4px 12px rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme:dark){:root{
+  --sky-50:#0E2A35;--sky-700:#5FD3F5;--sky-800:#9BE4FA;
+  --text:#F2F2F2;--text-2:#B5B5B5;--text-3:#8A8A8A;--bg:#121212;--bg-subtle:#1B1B1B;--line:#262626;--line-strong:#333;
+  --shadow-sm:none;--shadow-md:none;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:500 16px/1.75 "Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;letter-spacing:-.018em;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--sky-700);text-underline-offset:3px}
+header.site{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.bar{max-width:880px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:700;font-size:18px}
+.brand img{width:32px;height:32px;border-radius:8px}
+nav.site{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.site a{color:var(--text-2);text-decoration:none;font-size:14px;font-weight:600;padding:6px 10px;border-radius:999px}
+nav.site a:hover{background:var(--bg-subtle);color:var(--text)}
+nav.site a[aria-current]{background:var(--sky-50);color:var(--sky-800)}
+main{max-width:880px;margin:0 auto;padding:40px 16px 80px}
+h1{font-size:32px;line-height:1.3;margin:0 0 8px;font-weight:700;letter-spacing:-.03em}
+h2{font-size:22px;line-height:1.4;margin:48px 0 12px;padding-top:8px;font-weight:700;scroll-margin-top:72px}
+h3{font-size:18px;margin:28px 0 8px;font-weight:700;scroll-margin-top:72px}
+p,li{color:var(--text)}
+.meta{color:var(--text-2);font-size:14px;margin:0 0 24px}
+.lead{font-size:18px;color:var(--text-2);margin:0 0 32px}
+table{display:block;overflow-x:auto;border-collapse:collapse;width:100%;margin:16px 0;font-size:15px;border:1px solid var(--line);border-radius:14px}
+thead{background:var(--bg-subtle)}
+th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);min-width:120px}
+tr:last-child td{border-bottom:0}
+th{font-weight:700;color:var(--text-2);font-size:14px;white-space:nowrap}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+blockquote{margin:16px 0;padding:14px 18px;background:var(--sky-50);border-radius:14px;color:var(--text)}
+blockquote p{margin:0}
+code{font-size:.9em;background:var(--bg-subtle);padding:2px 6px;border-radius:6px}
+#markdown-toc{background:var(--bg-subtle);border:1px solid var(--line);border-radius:14px;padding:16px 20px 16px 40px;margin:0 0 32px;font-size:15px}
+#markdown-toc ul{padding-left:18px}
+#markdown-toc a{color:var(--text-2);text-decoration:none}
+#markdown-toc a:hover{color:var(--sky-700)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:24px 0}
+.card{display:block;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--bg);box-shadow:var(--shadow-sm);color:var(--text);text-decoration:none;transition:box-shadow .15s,border-color .15s}
+.card:hover{box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+.card strong{display:block;font-size:17px;margin-bottom:4px}
+.card span{color:var(--text-2);font-size:14px;line-height:1.6}
+.hero{display:flex;align-items:center;gap:20px;margin:8px 0 24px}
+.hero img{width:88px;height:88px;border-radius:20px;box-shadow:var(--shadow-md)}
+footer.site{border-top:1px solid var(--line);background:var(--bg-subtle)}
+footer.site .bar{color:var(--text-3);font-size:13px;padding:24px 16px}
+footer.site a{color:var(--text-2)}
+@media (max-width:560px){h1{font-size:26px}h2{font-size:20px}.hero img{width:64px;height:64px;border-radius:16px}nav.site{margin-left:0;width:100%}}
+@media print{header.site,footer.site,#markdown-toc{display:none}main{padding:0}}
+</style>
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/icon.svg' | relative_url }}" alt="">Movement</a>
+  <nav class="site" aria-label="문서">
+    {% assign links = "terms.html|이용약관,privacy.html|개인정보 처리방침,support.html|고객 지원,delete-account.html|계정 삭제" | split: "," %}
+    {% for l in links %}{% assign p = l | split: "|" %}<a href="{{ '/' | append: p[0] | relative_url }}"{% if page.url == '/' | append: p[0] %} aria-current="page"{% endif %}>{{ p[1] }}</a>{% endfor %}
+  </nav>
+</div></header>
+<main>
+{{ content }}
+</main>
+<footer class="site"><div class="bar">
+  <span>© {{ site.time | date: "%Y" }} Movement · 문의 <a href="mailto:movement.run@kakao.com">movement.run@kakao.com</a></span>
+</div></footer>
+</body>
+</html>
